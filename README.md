@@ -1,4 +1,4 @@
-## My Project
+## Welcome to Amazon SageMaker Model Serving Using AWS CDK
 
 TODO: Fill this README out!
 
