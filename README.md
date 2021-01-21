@@ -1,4 +1,4 @@
-# Welcome to "Amazon SageMaker Model Serving using AWS CDK"
+# Amazon SageMaker Model Serving using AWS CDK
 
 This repository provides AI/ML service(MachineLearning model serving) modernization solution using [Amazon SageMaker](https://aws.amazon.com/sagemaker), [AWS CDK](https://aws.amazon.com/cdk), and [AWS Serverless services](https://aws.amazon.com/serverless).
 
