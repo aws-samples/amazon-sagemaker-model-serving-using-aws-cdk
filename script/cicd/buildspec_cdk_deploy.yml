@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - pwd
+      - ls -l
+      - sh script/cicd/setup_initial.sh
+
+  build:
+    commands:
+      - echo $PROJECT_PREFIX
+      - echo ==--------ListStacks---------==
+      - cdk list
+      - echo ==--------StartDeploy---------==
+      - cdk deploy "$PROJECT_PREFIX"-ModelServingStack --require-approval never
+      - cdk deploy "$PROJECT_PREFIX"-APIHostingStack --require-approval never
+      - cdk deploy "$PROJECT_PREFIX"-MonitorDashboardStack --require-approval never
+      - echo ==--------CompleteDeploy---------==
+
+artifacts:
+  files: '**/*'

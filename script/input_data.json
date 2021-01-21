@@ -1,0 +1,56 @@
+{
+    "Config": {
+        "IntervalInSec": 10,
+        "DurationInSec": 600
+    },
+    "TestData": [
+        {
+            "type": "tc-001",
+            "resource": "text",
+            "request": {
+                "sentence": "The new president has called for an emergency conference for international cooperation."
+            },
+            "response": {
+                "success": "true",
+                "label": 1
+            },
+            "interval": 1
+        },
+        {
+            "type": "tc-002",
+            "resource": "text",
+            "request": {
+                "sentence": "Baseball is one of the most popular sports in the United States."
+            },
+            "response": {
+                "success": "true",
+                "label": 2
+            },
+            "interval": 1
+        },
+        {
+            "type": "tc-003",
+            "resource": "text",
+            "request": {
+                "sentence": "Stock investing has higher returns in the long run."
+            },
+            "response": {
+                "success": "true",
+                "label": 3
+            },
+            "interval": 1
+        },
+        {
+            "type": "tc-004",
+            "resource": "text",
+            "request": {
+                "sentence": "The development of science accelerated the development of mankind."
+            },
+            "response": {
+                "success": "true",
+                "label": 4
+            },
+            "interval": 1
+        }
+    ]
+}

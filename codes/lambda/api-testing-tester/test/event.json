@@ -1,0 +1,22 @@
+{
+    "Records": [
+        {
+            "EventSource": "aws:sns",
+            "EventVersion": "1.0",
+            "EventSubscriptionArn": "arn:aws:sns:us-east-1:75157*******:TextClassificationDemo-TestTrigger-Topic:3ea200af-7d9d-4c9b-9e19-a1fec14e3144",
+            "Sns": {
+                "Type": "Notification",
+                "MessageId": "310cbdba-6c1c-5c0b-bd89-e5c78864ca5c",
+                "TopicArn": "arn:aws:sns:us-east-1:75157*******:TextClassificationDemo-TestTrigger-Topic",
+                "Subject": None,
+                "Message": "[\n    {\n        "type": "tc-001",\n        "resource": "text",\n        "request": {\n            "sentence": "The new president has called for an emergency conference for international cooperation."\n        },\n        "response": {\n            "success": "true",\n            "label": 1\n        },\n        "interval": 2\n    },\n    {\n        "type": "tc-002",\n        "resource": "text",\n        "request": {\n            "sentence": "Baseball is one of the most popular sports in the United States."\n        },\n        "response": {\n            "success": "true",\n            "label": 2\n        },\n        "interval": 2\n    },\n    {\n        "type": "tc-003",\n        "resource": "text",\n        "request": {\n            "sentence": "Stock investing has higher returns in the long run."\n        },\n        "response": {\n            "success": "true",\n            "label": 3\n        },\n        "interval": 2\n    },\n    {\n        "type": "tc-004",\n        "resource": "text",\n        "request": {\n            "sentence": "The development of science accelerated the development of mankind."\n        },\n        "response": {\n            "success": "true",\n            "label": 4\n        },\n        "interval": 2\n    }\n]",
+                "Timestamp": "2021-01-17T07:07:36.556Z",
+                "SignatureVersion": "1",
+                "Signature": "CfWxkwXmV4Y5cZUKWzRdeTbq/HDZqkucmRitewK4tco2cdHR1nhuWyOcTwMvCTYJjIIeIJuflmUiwNvV/FwPFziR/No2Cewhbz5vj3eR8vpBe9mU6JRJ4BmygItSq+KqyAu463hwNec1k6qkc5DGB88xQ71ZVG7LVnaWKTDZf19vgKgj0sX24Sw4O5edgzFL+Gh3duENRLwrdK42BV7+x3VukA4EHBzammQhzVwsX+7Q0dswgcScIgwohxOGzZOLV7OKF/RmsOWEeJP9Vwh6jxVqhNuqPAGF0mcX3YtSjYDfx8L6EdlMT8Pa3+N9CogJ7UDwPfU1TW4jmtrZV6LL8g==",
+                "SigningCertUrl": "https://sns.us-east-1.amazonaws.com/SimpleNotificationService-010a507c1833636cd94bdb98bd93083a.pem",
+                "UnsubscribeUrl": "https://sns.us-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:75157*******:TextClassificationDemo-TestTrigger-Topic:3ea200af-7d9d-4c9b-9e19-a1fec14e3144",
+                "MessageAttributes": {}
+            }
+        }
+    ]
+}

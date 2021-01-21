@@ -1,0 +1,109 @@
+{
+    "Project": {
+        "Name": "TextClassification",
+        "Stage": "Demo",
+        "Account": "75157*******",
+        "Region": "us-east-1",
+        "Profile": "cdk-demo"
+    },
+
+    "Stack": {
+        "ModelArchiving": {
+            "Name": "ModelArchivingStack",
+
+            "BucketBaseName": "model-archiving",
+            "ModelList": [
+                {
+                    "ModelLocalPath": "models/model-a/model",
+                    "ModelS3Key":     "models/model-a/model"
+                },
+                {
+                    "ModelLocalPath": "models/model-a/model",
+                    "ModelS3Key":     "models/model-b/model"
+                }
+            ]
+        },
+        "ModelServing": {
+            "Name": "ModelServingStack",
+
+            "ModelList": [
+                {
+                    "ModelName":   "Model-A-20210102a",
+                    "ModelS3Key":     "models/model-a/model",
+                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-inference:1.4.0-cpu-py36-ubuntu16.04",
+                    
+                    "VariantName": "Model-A",
+                    "VariantWeight": 1,
+                    "InstanceCount": 1,
+                    "InstanceType": "ml.c5.xlarge",
+
+                    "AutoScalingEnable": false,
+                    "AutoScalingMinCapacity": 2,
+                    "AutoScalingMaxCapacity": 4,
+                    "AutoScalingTargetInvocation": 50
+                },
+                {
+                    "ModelName":   "Model-B-20210102a",
+                    "ModelS3Key":     "models/model-b/model",
+                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-inference:1.4.0-cpu-py36-ubuntu16.04",
+                    
+                    "VariantName": "Model-B",
+                    "VariantWeight": 1,
+                    "InstanceCount": 1,
+                    "InstanceType": "ml.m4.xlarge",
+
+                    "AutoScalingEnable": false,
+                    "AutoScalingMinCapacity": 1,
+                    "AutoScalingMaxCapacity": 3,
+                    "AutoScalingTargetInvocation": 100
+                }
+            ],
+
+            "EndpointConfigName":   "TextClassification-20210102a",
+            "BucketBaseName": "model-serving",
+
+            "EndpointName":      "TextClassification",
+            "Deploy": true
+        },
+        "APIHosting": {
+            "Name": "APIHostingStack",
+
+            "APIGatewayName": "APIS",
+            "ResourceName": "text",
+            "ResourceMethod": "POST",
+
+            "LambdaFunctionName": "TextClassificationPredict"
+        },
+        "MonitorDashboard": {
+            "Name": "MonitorDashboardStack",
+
+            "DashboardName": "MonitorDashboard",
+
+            "SubscriptionEmails": [],
+            "SubscriptionEmails-Example": ["abc@amazon.com"],
+
+            "ApiGatewayOverallCallThreshold": 100,
+            "ApiGatewayError4xxCallThreshold": 20,
+            "ApiGatewayError5xxCallThreshold": 20
+        },
+        "CICDPipeline": {
+            "Name": "CICDPipelineStack",
+
+            "RepositoryName": "text-classification-service",
+            "RepositoryBranch": "master"
+        },
+        "APITesting": {
+            "Name": "APITestingStack",
+
+            "SNSTopicName": "TestTrigger",
+
+            "LambdaFunctionName": "TestTrigger",
+            "TestClientCount": 5
+        },
+        "TesterDashboard": {
+            "Name": "TesterDashboardStack",
+
+            "DashboardName": "TesterDashboard"
+        }
+    }
+}
