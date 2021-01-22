@@ -90,7 +90,7 @@
             "Name": "CICDPipelineStack",
 
             "RepositoryName": "",
-            "RepositoryBranch": ""
+            "BranchName": ""
         },
         "APITesting": {
             "Name": "APITestingStack",
