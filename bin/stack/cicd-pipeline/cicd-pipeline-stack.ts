@@ -32,15 +32,23 @@ export class CicdPipelineStack extends BaseStack {
     constructor(scope: cdk.Construct, props: StackCommonProps, stackConfig: any) {
         super(scope, stackConfig.Name, props, stackConfig);
 
-        const pipeline = new codepipeline.Pipeline(this, 'CICDPipeline', {
-            pipelineName: `${this.projectPrefix}-CICD-Pipeline`,
-        });
+        const repositoryName: string = stackConfig.RepositoryName;
+        const branchName: string = stackConfig.BranchName;
 
-        const sourceStage = pipeline.addStage({ stageName: 'Source' });
-        sourceStage.addAction(this.createSourceStageAction('CodeCommit', stackConfig.RepositoryName, stackConfig.BranchName));
+        if (repositoryName.trim().length > 0
+            && branchName.trim().length > 0) {
+            const pipeline = new codepipeline.Pipeline(this, 'CICDPipeline', {
+                pipelineName: `${this.projectPrefix}-CICD-Pipeline`,
+            });
 
-        const buildStage = pipeline.addStage({ stageName: 'BuildDeploy' });
-        buildStage.addAction(this.createBuildDeployStageAction('BuildDeploy', 'script/cicd/buildspec_cdk_deploy.yml'));
+            const sourceStage = pipeline.addStage({ stageName: 'Source' });
+            sourceStage.addAction(this.createSourceStageAction('CodeCommit', repositoryName, branchName));
+
+            const buildStage = pipeline.addStage({ stageName: 'BuildDeploy' });
+            buildStage.addAction(this.createBuildDeployStageAction('BuildDeploy', 'script/cicd/buildspec_cdk_deploy.yml'));
+        } else {
+            console.info("No CodeCommit repository, so don't create CodePipeline");
+        }
     }
 
     private createSourceStageAction(actionName: string, repositoryName: string, branchName: string): codepipeline.IAction {

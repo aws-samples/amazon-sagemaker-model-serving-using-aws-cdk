@@ -89,8 +89,8 @@
         "CICDPipeline": {
             "Name": "CICDPipelineStack",
 
-            "RepositoryName": "text-classification-service",
-            "RepositoryBranch": "master"
+            "RepositoryName": "",
+            "RepositoryBranch": ""
         },
         "APITesting": {
             "Name": "APITestingStack",
