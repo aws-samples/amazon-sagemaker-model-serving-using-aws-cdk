@@ -61,6 +61,9 @@
 
             "EndpointConfigName":   "TextClassification-20210102a",
             "BucketBaseName": "model-serving",
+            "DataLoggingEnable": true,
+            "DataLoggingS3Key": "data-capture",
+            "DataLoggingPercentage": 30,
 
             "EndpointName":      "TextClassification",
             "Deploy": true

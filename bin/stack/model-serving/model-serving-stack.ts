@@ -45,8 +45,10 @@ interface EndpointConfigProps {
 
     variantConfigPropsList: VariantConfigProps[];
 
-    inferenceHistoryBucketName: string;
-    captureS3Key: string;
+    dataLoggingBucketName: string;
+    dataLoggingEnable: boolean;
+    dataLoggingS3Key: string;
+    dataLoggingPercentage: number;
 }
 
 interface EndpointProps {
@@ -90,12 +92,14 @@ export class ModelServingStack extends BaseStack {
             });
         }
 
-        const logBucketName = this.createS3Bucket(stackConfig.BucketBaseName).bucketName;
+        const loggingBucketName = this.createS3Bucket(stackConfig.BucketBaseName).bucketName;
         const endpointConfigName = this.createEndpointConfig({
             endpointConfigName: stackConfig.EndpointConfigName,
             variantConfigPropsList: modelConfigList,
-            inferenceHistoryBucketName: logBucketName,
-            captureS3Key: 'data-capture',
+            dataLoggingBucketName: loggingBucketName,
+            dataLoggingEnable: stackConfig.DataLoggingEnable,
+            dataLoggingS3Key: stackConfig.DataLoggingS3Key,
+            dataLoggingPercentage: stackConfig.DataLoggingPercentage,
             role: role
         });
 
@@ -153,9 +157,9 @@ export class ModelServingStack extends BaseStack {
             }),
             dataCaptureConfig: {
                 captureOptions: [{ captureMode: 'Input' }, { captureMode: 'Output' }],
-                enableCapture: true,
-                destinationS3Uri: `s3://${props.inferenceHistoryBucketName}/${props.captureS3Key}`,
-                initialSamplingPercentage: 30
+                enableCapture: props.dataLoggingEnable,
+                destinationS3Uri: `s3://${props.dataLoggingBucketName}/${props.dataLoggingS3Key}`,
+                initialSamplingPercentage: props.dataLoggingPercentage
             }
         });
 
