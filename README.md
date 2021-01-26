@@ -38,6 +38,17 @@ This repository provides AI/ML service(MachineLearning model serving) modernizat
 
 15. [**License**](#license)
 
+## **Repository Structure**
+
+This repository is basically a CDK-Project, but it is organized as follows so that MLDevOps(ML Scientist + SW Developer + Infra Operator) can collaborate.
+
+- bin/stack directory: for Infra Operator
+- codes/lambda directory: for SW Developer
+- models/model-a: for ML Scientist
+- config/app-config.json: a place where all developer(MLDevOps) can collaborate, ***Configuration Driven Development*** approach can coordinate each other's interfaces through configuration.
+
+![ProjectStructure](docs/asset/project_structure.png)
+
 ## **Solution coverage**
 
 When considering AI/ML services development & operation (DevOps), there are various considerations other than model serving. For example, A/B testing, monitoring, data collection, etc. should be considered together for continuous service improvement. To meet these considerations, this solution covers the areas highlighted in the figure below.
@@ -70,15 +81,21 @@ Finally, we can design the architecture by placing the following services in the
 
 ## **Solution architecture**
 
-Basically this architecture is designed to provide a realtime endpoint using ML models. In addition, the following functions are designed to be provided for continuous AI/ML services improvement.
+Basically this architecture is designed to provide a realtime endpoint using ML models. In this architecture, ***Application Modernization*** approach was applied to develop and operate agile and stable services.
 
-- Model Serving Stack: Models Archiving, Multiple Models(A/B Testing) Serving, Inference History Logging
+![SolutionArchitecture](docs/asset/solution_architecture.png)
+
+Each stack provides the follwing functions. In particular, the common functions of each stack are provided through ***BaseStack*** class by utilizing the characteristics of an object-oriented programming. Parameters such as resource name/ARN are shared between each stack through ***Parameter Store*** in AWS Systems Manager.
+
+- Model Archiving Stack: Model Bucket Creation, model.tar.gz file Uploading
+- Model Serving Stack: Models Loading, Multiple Models(A/B Testing) Serving, Inference Input/Output Logging
 - API Hosting Stack: Serverless API Endpoint & Http Request Handling
 - Monitor Dashboard: Serverless Resource Monitoring & Alarm
 - CICD Pipeline: Continuous Integration & Continuous Deploy
 - API Testing: Serverless Tester Agent
+- Tester Dashboard: Testing State Monitoring
 
-![SolutionArchitecture](docs/asset/solution_architecture.png)
+![StackDependency](docs/asset/stack_dependency.png)
 
 AWS services used are as follows:
 
