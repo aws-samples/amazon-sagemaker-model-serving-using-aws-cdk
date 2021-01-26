@@ -4,41 +4,43 @@ This repository provides AI/ML service(MachineLearning model serving) modernizat
 
 ## Contents
 
-1. [**Solution coverage**](#solution-coverage)
+1. [**Repository structure**](#repository-structure)
+
+2. [**Solution coverage**](#solution-coverage)
   
-2. [**Solution approach**](#solution-approach)
+3. [**Solution approach**](#solution-approach)
 
-3. [**Solution architecture**](#solution-architecture)
+4. [**Solution architecture**](#solution-architecture)
 
-4. [**How to prepare ML model**](#how-to-prepare-ml-model)
+5. [**How to prepare ML model**](#how-to-prepare-ml-model)
 
-5. [**How to deploy**](#how-to-deploy)
+6. [**How to deploy**](#how-to-deploy)
 
     - [**Prerequisites**](#prerequisites)
     - [**How to set up**](#how-to-set-up)
     - [**How to provision**](#how-to-provision)
 
-6. [**How to test**](#how-to-test)
+7. [**How to test**](#how-to-test)
 
-7. [**How to monitor**](#how-to-monitor)
+8. [**How to monitor**](#how-to-monitor)
 
-8. [**How to change model and endpoint configration**](#how-to-change-model-and-endpoint-configration)
+9. [**How to change model and endpoint configration**](#how-to-change-model-and-endpoint-configration)
 
-9. [**How to set up auto-scaling**](#how-to-set-up-auto-scaling)
+10. [**How to set up auto-scaling**](#how-to-set-up-auto-scaling)
 
-10. [**How to add model-b**](#how-to-add-model-b)
+11. [**How to add model-b**](#how-to-add-model-b)
 
-11. [**How to configure Logging-Path**](#how-to-configure-logging-path)
+12. [**How to configure Logging-Path**](#how-to-configure-logging-path)
 
-12. [**About CDK-Project**](#about-cdk-project)
+13. [**About CDK-Project**](#about-cdk-project)
 
-13. [**How to clean up**](#how-to-clean-up)
+14. [**How to clean up**](#how-to-clean-up)
 
-14. [**Security**](#security)
+15. [**Security**](#security)
 
-15. [**License**](#license)
+16. [**License**](#license)
 
-## **Repository Structure**
+## **Repository structure**
 
 This repository is basically a CDK-Project, but it is organized as follows so that MLDevOps(ML Scientist + SW Developer + Infra Operator) can collaborate.
 
