@@ -95,7 +95,7 @@ export class APIHostingStack extends BaseStack {
             roleName: `${this.projectPrefix}-${name}-Role`,
             assumedBy: new iam.ServicePrincipal('apigateway.amazonaws.com'),
         });
-        role.addManagedPolicy({ managedPolicyArn: 'arn:aws:iam::aws:policy/AWSLambdaFullAccess' });
+        role.addManagedPolicy({ managedPolicyArn: 'arn:aws:iam::aws:policy/AWSLambda_FullAccess' });
 
         const lambdaIntegration = new apigateway.LambdaIntegration(lambdaInferAlias, {
             credentialsRole: role,
