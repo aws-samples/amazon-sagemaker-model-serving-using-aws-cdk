@@ -2,7 +2,11 @@
 
 This repository provides AI/ML service(MachineLearning model serving) modernization solution using [Amazon SageMaker](https://aws.amazon.com/sagemaker), [AWS CDK](https://aws.amazon.com/cdk), and [AWS Serverless services](https://aws.amazon.com/serverless).
 
-Other "Using AWS CDK" series can be found at:
+A guide and demonstration of this solution can be found in:
+
+- [AWS Innovate 2021 AIML Edition](https://www.youtube.com/watch?v=kn2DBjZW5W8&t=1588s)
+
+Other "Using AWS CDK" series can be found in:
 
 - [AWS ECS DevOps Using AWS CDK](https://github.com/aws-samples/aws-ecs-devops-using-aws-cdk)
 - [AWS IoT Greengrass Ver2 Using AWS CDK](https://github.com/aws-samples/aws-iot-greengrass-v2-using-aws-cdk)
