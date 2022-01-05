@@ -3,7 +3,7 @@
         "Name": "TextClassification",
         "Stage": "Demo",
         "Account": "75157*******",
-        "Region": "us-east-1",
+        "Region": "us-east-2",
         "Profile": "cdk-demo"
     },
 
@@ -30,7 +30,8 @@
                 {
                     "ModelName":   "Model-A-20210102a",
                     "ModelS3Key":     "models/model-a/model",
-                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-inference:1.4.0-cpu-py36-ubuntu16.04",
+                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-2.amazonaws.com/pytorch-inference:1.8.1-cpu-py36-ubuntu18.04",
+                    "ModelDockerImage-Desc": "SageMaker Prebuilt Docker Images: https://github.com/aws/deep-learning-containers/blob/master/available_images.md",
                     
                     "VariantName": "Model-A",
                     "VariantWeight": 1,
@@ -47,7 +48,8 @@
                 {
                     "ModelName":   "Model-B-20210102a",
                     "ModelS3Key":     "models/model-b/model",
-                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-inference:1.4.0-cpu-py36-ubuntu16.04",
+                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-2.amazonaws.com/pytorch-inference:1.8.1-cpu-py36-ubuntu18.04",
+                    "ModelDockerImage-Desc": "SageMaker Prebuilt Docker Images: https://github.com/aws/deep-learning-containers/blob/master/available_images.md",
                     
                     "VariantName": "Model-B",
                     "VariantWeight": 1,

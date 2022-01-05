@@ -134,7 +134,7 @@ In any directory, execute the following commands to train model and finally get 
 - 3: 'Business'
 - 4: 'Sci/Tech'
 
-If you are not ready for pytorch, please refer to this [installation guide](https://github.com/pytorch/text#installation).
+If you are not ready for pytorch, please refer to this [installation guide](https://github.com/pytorch/text#installation). In this repository, pytorch version is 1.8.0, torchtext version is 0.9.0.
 
 ```bash
 git clone https://github.com/pytorch/text.git torchtext  
@@ -241,7 +241,7 @@ First of all, enter your project basic configuration in the follwoing document: 
         "Name": "TextClassification",
         "Stage": "Demo",
         "Account": "75157*******",
-        "Region": "us-east-1",
+        "Region": "us-east-2",
         "Profile": "cdk-demo"
     },
     ...
@@ -413,7 +413,7 @@ If you have already ***model.tar.gz*** file in S3 Bucket so you don't need uploa
                 {
                     "ModelName":   "Model-A-20210117a", <-- change ModelName if ModelS3Key or ModelDockerImage is modified, and then change EndpointConfigName also
                     "ModelS3Key":     "models/model-a/model",
-                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-inference:1.4.0-cpu-py36-ubuntu16.04",
+                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-2.amazonaws.com/pytorch-inference:1.8.1-cpu-py36-ubuntu18.04",
                     
                     "VariantName": "Model-A",
                     "VariantWeight": 1,
@@ -505,7 +505,7 @@ In ModelServingStack
                 {
                     "ModelName":   "Model-A-20210117a",
                     "ModelS3Key":     "models/model-a/model",
-                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-inference:1.4.0-cpu-py36-ubuntu16.04",
+                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-2.amazonaws.com/pytorch-inference:1.8.1-cpu-py36-ubuntu18.04",
                     
                     "VariantName": "Model-A",
                     "VariantWeight": 1,
@@ -520,7 +520,7 @@ In ModelServingStack
                 {
                     "ModelName":   "Model-B-20210117a",
                     "ModelS3Key":     "models/model-b/model",
-                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-inference:1.4.0-cpu-py36-ubuntu16.04",
+                    "ModelDockerImage": "763104351884.dkr.ecr.us-east-2.amazonaws.com/pytorch-inference:1.8.1-cpu-py36-ubuntu18.04",
                     
                     "VariantName": "Model-B",
                     "VariantWeight": 1,
