@@ -29,6 +29,7 @@ interface ModelProps {
     modelBucketName: string;
     modelS3Key: string;
     modelDockerImage: string;
+    modelServerWorkers: string;
 }
 
 interface VariantConfigProps {
@@ -80,7 +81,8 @@ export class ModelServingStack extends BaseStack {
                 modelDockerImage: model.ModelDockerImage,
                 modelS3Key: model.ModelS3Key,
                 modelBucketName: modelBucketName,
-                role: role
+                role: role,
+                modelServerWorkers: model.ModelServerWorkers
             });
 
             modelConfigList.push({
@@ -135,6 +137,7 @@ export class ModelServingStack extends BaseStack {
                     image: props.modelDockerImage,
                     modelDataUrl: `s3://${props.modelBucketName}/${props.modelS3Key}/model.tar.gz`,
                     environment: {
+                        SAGEMAKER_MODEL_SERVER_WORKERS: props.modelServerWorkers
                     }
                 }
             ]

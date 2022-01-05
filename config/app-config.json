@@ -36,6 +36,8 @@
                     "VariantWeight": 1,
                     "InstanceCount": 1,
                     "InstanceType": "ml.c5.xlarge",
+                    "ModelServerWorkers": "4",
+                    "ModelServerWorkers-Desc": "Please update this value according to InstanceType's vCPU",
 
                     "AutoScalingEnable": false,
                     "AutoScalingMinCapacity": 2,
@@ -50,7 +52,9 @@
                     "VariantName": "Model-B",
                     "VariantWeight": 1,
                     "InstanceCount": 1,
-                    "InstanceType": "ml.m4.xlarge",
+                    "InstanceType": "ml.c5.large",
+                    "ModelServerWorkers": "2",
+                    "ModelServerWorkers-Desc": "Please update this value according to InstanceType's vCPU",
 
                     "AutoScalingEnable": false,
                     "AutoScalingMinCapacity": 1,

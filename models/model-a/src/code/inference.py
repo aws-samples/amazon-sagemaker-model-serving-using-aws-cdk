@@ -24,6 +24,11 @@ import os
 import json
 import logging
 
+import threading
+print('[INFO] load-thread id: {}'.format(threading.currentThread().getName()))
+print('[INFO] load-process id: {}'.format(os.getpid()))
+print('[INFO] load-SAGEMAKER_MODEL_SERVER_WORKERS: {}'.format(os.environ.get('SAGEMAKER_MODEL_SERVER_WORKERS', 'nonon')))
+
 logger = logging.getLogger(__name__)
 
 _model_file_name = 'model.pth'
@@ -36,6 +41,8 @@ _tokenizer = get_tokenizer("basic_english")
 
 
 def model_fn(model_dir):
+    print('[INFO] model_fn-thread id: {}'.format(threading.currentThread().getName()))
+    print('[INFO] model_fn-process id: {}'.format(os.getpid()))
     logger.info('model_fn: Loading the model-{}'.format(model_dir))
 
     file_list = os.listdir(model_dir)
