@@ -73,7 +73,7 @@ export class CloudWatchDashboard extends cdk.Construct {
         return new cloudwatch.Metric({
             metricName,
             namespace: 'AWS/DynamoDB',
-            dimensions: dimensions,
+            dimensionsMap: dimensions,
             statistic: options.statistic,
             unit: options.unit,
             period: this.props.period,
@@ -92,7 +92,7 @@ export class CloudWatchDashboard extends cdk.Construct {
         return new cloudwatch.Metric({
             metricName,
             namespace: 'AWS/Lambda',
-            dimensions: {
+            dimensionsMap: {
                 FunctionName: lambdaFunctionName.includes(':') ? lambdaFunctionName.split(':')[0] : lambdaFunctionName, //lambdaNameAlias.split(':')[0],
                 Resource: lambdaFunctionName      //lambdaNameAlias
             },
@@ -108,7 +108,7 @@ export class CloudWatchDashboard extends cdk.Construct {
         return new cloudwatch.Metric({
             metricName,
             namespace: 'AWS/Kinesis',
-            dimensions: {
+            dimensionsMap: {
                 StreamName: streamName
             },
             unit: cloudwatch.Unit.COUNT,
@@ -123,7 +123,7 @@ export class CloudWatchDashboard extends cdk.Construct {
             return new cloudwatch.Metric({
                 metricName,
                 namespace: '/aws/sagemaker/Endpoints',
-                dimensions: {
+                dimensionsMap: {
                     EndpointName: endpointName,
                     VariantName: variantName,
                 },
@@ -143,7 +143,7 @@ export class CloudWatchDashboard extends cdk.Construct {
             return new cloudwatch.Metric({
                 metricName,
                 namespace: 'AWS/SageMaker',
-                dimensions: {
+                dimensionsMap: {
                     EndpointName: endpointName,
                     VariantName: variantName,
                 },
@@ -162,7 +162,7 @@ export class CloudWatchDashboard extends cdk.Construct {
         return new cloudwatch.Metric({
             metricName,
             namespace: 'AWS/ApiGateway',
-            dimensions: {
+            dimensionsMap: {
                 ApiName: apiName,
             },
             statistic: options.statistic,
@@ -177,7 +177,7 @@ export class CloudWatchDashboard extends cdk.Construct {
         return new cloudwatch.Metric({
             metricName,
             namespace: 'AWS/SNS',
-            dimensions: {
+            dimensionsMap: {
                 TopicName: topicName,
             },
             statistic: options.statistic,
@@ -192,7 +192,7 @@ export class CloudWatchDashboard extends cdk.Construct {
         return new cloudwatch.Metric({
             metricName,
             namespace: namespace,
-            dimensions: dimensions,
+            dimensionsMap: dimensions,
             statistic: options.statistic,
             unit: options.unit,
             period: this.props.period,

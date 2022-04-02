@@ -65,8 +65,8 @@ export class APIHostingStack extends BaseStack {
 
         const plan = gateway.addUsagePlan('APIUsagePlan', {
             name: `${this.projectPrefix}-${gatewayName}-Plan`,
-            apiKey: apiKey
         });
+        plan.addApiKey(apiKey);
 
         plan.addApiStage({
             stage: gateway.deploymentStage,

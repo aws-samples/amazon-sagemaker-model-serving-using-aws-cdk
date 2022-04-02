@@ -11,24 +11,23 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.106.0",
+    "@aws-cdk/assert": "1.150.0",
     "@types/jest": "^27.0.2",
     "@types/node": "10.17.27",
-    "aws-cdk": "1.106.0",
+    "aws-cdk": "1.150.0",
     "jest": "^27.2.5",
     "ts-jest": "^27.0.5",
     "ts-node": "^9.0.0",
     "typescript": "~3.9.7"
   },
   "dependencies": {
-    "lodash": ">=4.17.21",
-    "@aws-cdk/core": "1.106.0",
-    "source-map-support": "^0.5.16",
-    "@aws-cdk/aws-sagemaker": "1.106.0",
-    "@aws-cdk/aws-apigateway": "1.106.0",
-    "@aws-cdk/aws-cloudwatch-actions": "1.106.0",
-    "@aws-cdk/aws-codepipeline-actions": "1.106.0",
-    "@aws-cdk/aws-lambda": "1.106.0",
-    "@aws-cdk/aws-s3-deployment": "1.106.0"
+    "@aws-cdk/aws-sagemaker": "1.150.0",
+    "@aws-cdk/aws-apigateway": "1.150.0",
+    "@aws-cdk/aws-cloudwatch-actions": "1.150.0",
+    "@aws-cdk/aws-codepipeline-actions": "1.150.0",
+    "@aws-cdk/aws-lambda": "1.150.0",
+    "@aws-cdk/aws-s3-deployment": "1.150.0",
+    "@aws-cdk/core": "1.150.0",
+    "source-map-support": "^0.5.16"
   }
 }
