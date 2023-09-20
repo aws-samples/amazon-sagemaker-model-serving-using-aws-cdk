@@ -1,5 +1,5 @@
 {
-  "name": "text-classification-service",
+  "name": "@aws-samples/text-classification-service",
   "version": "0.1.0",
   "bin": {
     "text-classification-service": "bin/app-main.js"
